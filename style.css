@@ -1,0 +1,21 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a .nav {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-decoration: none;
+}
+
+.nav {
+  color: plum;
+  text-decoration: none;
+}
+
+.nav:hover {
+  color: black;
+}
+
+.nav:active {
+  color: blue;
+}
