@@ -1,10 +1,28 @@
+:root {
+  --purple: rgb(106, 8, 106);
+}
+
 * {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-a .nav {
+/* a tag relates to the "View Highscores" button in the top-left */
+a {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: var(--purple);
   text-decoration: none;
+}
+a:hover {
+  color: brown;
+}
+
+a:active {
+  color: blue;
+}
+
+/* header is the title of the quiz and the questions themselves.  */
+header {
+  font-weight: 600;
 }
 
 .container {
@@ -12,19 +30,21 @@ a .nav {
   justify-content: space-between;
 }
 
-.nav {
-  color: plum;
-  text-decoration: none;
+/* quiz is the element that contains the quiz question and the answer options.  */
+.quiz {
+  width: 40%;
+  text-align: center;
+  margin-top: 2rem;
 }
 
-.nav:hover {
-  color: black;
+/* defines button styles */
+.button {
+  background-color: blueviolet;
+  color: white;
+  border-radius: 9%;
+  border-color: blueviolet;
 }
 
-.nav:active {
-  color: blue;
+.button:hover {
+  opacity: 70%;
 }
-
-/* TODO: add variables for color 
-position heading and p elements in middle of page
-position timer on the far-right of the page */
