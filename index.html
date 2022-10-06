@@ -15,18 +15,34 @@
       </section>
       <!-- this section is where the quiz takes place  -->
       <section class="quiz">
-        <header>Coding Quiz Challenge</header>
-        <p>
+        <header class="intro">Coding Quiz Challenge</header>
+        <p class="intro">
           Try to answer these coding-based questions before the timer runs out.
           Wrong answers will take time away!
         </p>
-        <button class="button">Start Quiz</button>
+        <header id="question1" class="hidden">
+          What language is used to build the framework of a website?
+        </header>
+        <header id="question2" class="hidden">
+          ___are used to initiate an event in JavaScript"
+        </header>
+        <header id="question3" class="hidden">
+          Selectors in CSS are important because___.
+        </header>
+        <header id="question4" class="hidden">
+          What is the page selector in CSS?"
+        </header>
+        <header id="question5" class="hidden">
+          JavaScript is a type of Java.
+        </header>
+
+        <button class="button" class="intro">Start Quiz</button>
         <!-- TODO: add heading element and paragraph element as well as start button -->
         <!-- TODO: possibly add multiple 'hidden' items with heading and answers.  -->
       </section>
       <!-- timer in the top-right corner  -->
       <section>
-        <h3 class="time"></h3>
+        <h3 class="time">Current Score: 75</h3>
         <div id="main"></div>
       </section>
     </main>

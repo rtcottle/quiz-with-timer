@@ -2,10 +2,24 @@ var timeEl = document.querySelector(".time");
 
 var mainEl = document.getElementById("main");
 
-var quizEl = document.querySelector("quiz");
+var quizEl = document.querySelector(".quiz");
+
+var buttonEl = document.querySelector("button");
+
+var introEl = document.querySelector(".intro");
+
+// var quizQuestions = [
+//   "What language is used to build the framework of a website?",
+//   "___are used to initiate an event in JavaScript",
+//   "Selectors in CSS are important because___.",
+//   "What is the page selector in CSS?",
+//   "JavaScript is a type of Java.",
+// ];
+
+var answers1 = ["1. Java", "2. CSS", "3. HTML", "4. C++"];
 
 //number of seconds to do the quiz.
-var secondsLeft = 75;
+var secondsLeft = 2;
 
 function setTime() {
   var timerInterval = setInterval(function () {
@@ -38,12 +52,9 @@ function sendMessage() {
 // setTime();
 
 quizEl.addEventListener("click", function () {
-  if (secondsLeft < 70) {
-    setTime();
-  }
+  introEl.setAttribute("class", "hidden");
+  setTime();
 });
-
-// TODO: add event listener for start button
 
 // TODO: cycle through questions - - can be through event listener or HTML
 // TODO: present quiz results - local storage
