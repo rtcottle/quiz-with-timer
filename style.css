@@ -7,6 +7,11 @@ a .nav {
   text-decoration: none;
 }
 
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .nav {
   color: plum;
   text-decoration: none;
