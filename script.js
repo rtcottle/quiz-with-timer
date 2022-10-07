@@ -6,7 +6,18 @@ var quizEl = document.querySelector(".quiz");
 
 var buttonEl = document.querySelector("button");
 
+// select all intro-class elements
 var introEl = document.querySelector(".intro");
+
+var footerEl = document.querySelector("footer");
+//array to choose quiz questions.
+var quizQuestions = [
+  document.getElementById("question1"),
+  document.getElementById("question2"),
+  document.getElementById("question3"),
+  document.getElementById("question4"),
+  document.getElementById("question5"),
+];
 
 // var quizQuestions = [
 //   "What language is used to build the framework of a website?",
@@ -15,8 +26,6 @@ var introEl = document.querySelector(".intro");
 //   "What is the page selector in CSS?",
 //   "JavaScript is a type of Java.",
 // ];
-
-var answers1 = ["1. Java", "2. CSS", "3. HTML", "4. C++"];
 
 //number of seconds to do the quiz.
 var secondsLeft = 2;
@@ -33,30 +42,35 @@ function setTime() {
   }, 1000);
 }
 
+//function when the time is up
 function sendMessage() {
   timeEl.textContent = "Time's Up!";
   var scoresEl = document.createElement("header");
-  var button1 = document.createElement("button");
-  var button2 = document.createElement("button");
   var input = document.createElement("input");
+  var button1 = document.createElement("button");
   mainEl.textContent = "Final Score: " + secondsLeft;
-  button1.textContent = "Clear History";
-  button2.textContent = "View Highscores";
-  quizEl.appendChild(scoresEl);
-  quizEl.appendChild(scoresEl);
-  quizEl.appendChild(button1);
-  quizEl.appendChild(button2);
-  quizEl.appendChild(input);
+  scoresEl.textContent = "Your Name Here: ";
+  button1.textContent = "Submit";
+  button1.setAttribute("href", "");
+  footerEl.appendChild(scoresEl);
+  footerEl.appendChild(scoresEl);
+  footerEl.appendChild(button1);
+  input.setAttribute("class", "username");
+  footerEl.appendChild(input);
 }
-
-// setTime();
-
+//start quiz when button clicked
 quizEl.addEventListener("click", function () {
   introEl.setAttribute("class", "hidden");
   setTime();
 });
 
+// function answerQuestion() {
+//     if
+// }
+
+// TODO: make the intro text disappear on click
 // TODO: cycle through questions - - can be through event listener or HTML
+// TODO: assign each question an ID of so they can be cycled through the array.
 // TODO: present quiz results - local storage
 // TODO: show right/wrong answers
 // TODO: timer reduced when answer is wrong.

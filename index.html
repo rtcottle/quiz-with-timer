@@ -15,28 +15,73 @@
       </section>
       <!-- this section is where the quiz takes place  -->
       <section class="quiz">
-        <header class="intro">Coding Quiz Challenge</header>
-        <p class="intro">
-          Try to answer these coding-based questions before the timer runs out.
-          Wrong answers will take time away!
-        </p>
-        <header id="question1" class="hidden">
-          What language is used to build the framework of a website?
-        </header>
-        <header id="question2" class="hidden">
-          ___are used to initiate an event in JavaScript"
-        </header>
-        <header id="question3" class="hidden">
-          Selectors in CSS are important because___.
-        </header>
-        <header id="question4" class="hidden">
-          What is the page selector in CSS?"
-        </header>
-        <header id="question5" class="hidden">
-          JavaScript is a type of Java.
-        </header>
-
-        <button class="button" class="intro">Start Quiz</button>
+        <div class="intro">
+          <header>Coding Quiz Challenge</header>
+          <p>
+            Try to answer these coding-based questions before the timer runs
+            out. Wrong answers will take time away!
+          </p>
+          <button class="intro button">Start Quiz</button>
+        </div>
+        <div class="questions">
+          <div>
+            <header id="question1" class="hidden">
+              What language is used to build the framework of a website?
+            </header>
+          </div>
+          <!-- TODO: answer all of these questions  -->
+          <div>
+            <header id="question1" class="hidden">
+              ___are used to initiate an event in JavaScript
+          </div>
+          <div>
+            <header id="question1" class="hidden">
+              Selectors in CSS are important because___.
+            </header>
+          </div>
+          <div>
+            <header id="question1" class="hidden">
+              What is the page selector in CSS?
+            </header>
+          </div>
+          <div>
+            <header id="question1" class="hidden">
+              JavaScript is a type of Java.
+            </header>
+          </div>
+        </div>
+        <div class="answers">
+          <div class="answers1">
+            <button class="false">a. CSS</button>
+            <button class="false">b. Java</button>
+            <button class="true">c. HTML</button>
+            <button class="false">d. C++</button>
+          </div>
+          <div class="answers2">
+            <button class="false">a. CSS</button>
+            <button class="false">b. Java</button>
+            <button class="true">c. HTML</button>
+            <button class="false">d. C++</button>
+          </div>
+          <div class="answers3">
+            <button class="false">a. CSS</button>
+            <button class="false">b. Java</button>
+            <button class="true">c. HTML</button>
+            <button class="false">d. C++</button>
+          </div>
+          <div class="answers4">
+            <button class="false">a. CSS</button>
+            <button class="false">b. Java</button>
+            <button class="true">c. HTML</button>
+            <button class="false">d. C++</button>
+          </div>
+          <div class="answers5">
+            <button class="false">a. CSS</button>
+            <button class="false">b. Java</button>
+            <button class="true">c. HTML</button>
+            <button class="false">d. C++</button>
+          </div>
+        </div>
         <!-- TODO: add heading element and paragraph element as well as start button -->
         <!-- TODO: possibly add multiple 'hidden' items with heading and answers.  -->
       </section>
@@ -46,6 +91,7 @@
         <div id="main"></div>
       </section>
     </main>
+    <footer></footer>
     <script src="./script.js"></script>
   </body>
 </html>
