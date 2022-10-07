@@ -18,14 +18,15 @@ var quizQuestions = [
   document.getElementById("question4"),
   document.getElementById("question5"),
 ];
+console.log(quizQuestions);
 
-// var quizQuestions = [
-//   "What language is used to build the framework of a website?",
-//   "___are used to initiate an event in JavaScript",
-//   "Selectors in CSS are important because___.",
-//   "What is the page selector in CSS?",
-//   "JavaScript is a type of Java.",
-// ];
+var quizAnswers = [
+  document.getElementById("answers1"),
+  document.getElementById("answers2"),
+  document.getElementById("answers3"),
+  document.getElementById("answers4"),
+  document.getElementById("answers5"),
+];
 
 //number of seconds to do the quiz.
 var secondsLeft = 2;
@@ -38,6 +39,13 @@ function setTime() {
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
       sendMessage();
+    }
+    // this removes the quiz answers/questions when the timer runs out
+    if (!quizAnswers.class === hidden) {
+      quizAnswers.setAttribute("class", "hidden");
+    }
+    if (!quizQuestions.class === hidden) {
+      quizAnswers.setAttribute("class", "hidden");
     }
   }, 1000);
 }
@@ -61,15 +69,12 @@ function sendMessage() {
 //start quiz when button clicked
 quizEl.addEventListener("click", function () {
   introEl.setAttribute("class", "hidden");
+  quizQuestions[0].setAttribute("class", "visible");
+  quizAnswers[0].setAttribute("class", "visible");
   setTime();
 });
 
-// function answerQuestion() {
-//     if
-// }
-
-// TODO: make the intro text disappear on click
-// TODO: cycle through questions - - can be through event listener or HTML
+// TODO: cycle through questions - - this through an event-listener then a for loop.
 // TODO: assign each question an ID of so they can be cycled through the array.
 // TODO: present quiz results - local storage
 // TODO: show right/wrong answers
