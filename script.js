@@ -41,7 +41,7 @@ function setTime() {
       sendMessage();
     }
     // this removes the quiz answers/questions when the timer runs out
-    if (!quizAnswers.class === hidden) {
+    if (!quizAnswers("class") === hidden) {
       quizAnswers.setAttribute("class", "hidden");
     }
     if (!quizQuestions.class === hidden) {
@@ -72,6 +72,10 @@ quizEl.addEventListener("click", function () {
   quizQuestions[0].setAttribute("class", "visible");
   quizAnswers[0].setAttribute("class", "visible");
   setTime();
+
+  quizEl.addEventListener("click", function () {
+    quizAnswers[0].setAttribute("click", "hidden");
+  });
 });
 
 // TODO: cycle through questions - - this through an event-listener then a for loop.

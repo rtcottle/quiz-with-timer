@@ -62,3 +62,25 @@ footer {
 .button:hover {
   opacity: 70%;
 }
+
+.confirmation {
+  color: grey;
+  text-align: center;
+}
+
+.answers {
+  display: flex;
+  border: solid black;
+  padding: 10px;
+}
+
+/* #answers2,
+#answers3,
+#answers4,
+#answers5 */
+#answers1 {
+  display: block;
+  flex-basis: 6rem;
+  flex-direction: column;
+  justify-content: flex-start;
+}
