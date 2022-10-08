@@ -30,6 +30,13 @@ footer {
   justify-content: center;
 }
 
+/* this is the answer button formatting  */
+div button {
+  margin: 2px;
+  width: 100%;
+}
+
+/* formatting once user name inputted  */
 .username {
   display: flex;
   justify-content: space-around;
@@ -39,6 +46,7 @@ footer {
   display: none;
 }
 
+/* formats the contents of entire page  */
 .container {
   display: flex;
   justify-content: space-between;
@@ -63,23 +71,25 @@ footer {
   opacity: 70%;
 }
 
+/* pop-up when answer selected - formatting  */
 .confirmation {
   color: grey;
   text-align: center;
 }
 
+/* formats answers to left side  */
 .answers {
   display: flex;
-  border: solid black;
   padding: 10px;
 }
 
-/* #answers2,
+/* this styles the layout of the answer options  */
+#answers2,
 #answers3,
 #answers4,
-#answers5 */
+#answers5,
 #answers1 {
-  display: block;
+  padding: 10px;
   flex-basis: 6rem;
   flex-direction: column;
   justify-content: flex-start;

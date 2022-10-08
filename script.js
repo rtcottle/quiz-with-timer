@@ -6,6 +6,8 @@ var quizEl = document.querySelector(".quiz");
 
 var buttonEl = document.querySelector("button");
 
+var mode = "hidden";
+
 // select all intro-class elements
 var introEl = document.querySelector(".intro");
 
@@ -29,7 +31,7 @@ var quizAnswers = [
 ];
 
 //number of seconds to do the quiz.
-var secondsLeft = 2;
+var secondsLeft = 75;
 
 function setTime() {
   var timerInterval = setInterval(function () {
@@ -41,12 +43,6 @@ function setTime() {
       sendMessage();
     }
     // this removes the quiz answers/questions when the timer runs out
-    if (!quizAnswers("class") === hidden) {
-      quizAnswers.setAttribute("class", "hidden");
-    }
-    if (!quizQuestions.class === hidden) {
-      quizAnswers.setAttribute("class", "hidden");
-    }
   }, 1000);
 }
 
@@ -61,7 +57,6 @@ function sendMessage() {
   button1.textContent = "Submit";
   button1.setAttribute("href", "");
   footerEl.appendChild(scoresEl);
-  footerEl.appendChild(scoresEl);
   footerEl.appendChild(button1);
   input.setAttribute("class", "username");
   footerEl.appendChild(input);
@@ -72,11 +67,55 @@ quizEl.addEventListener("click", function () {
   quizQuestions[0].setAttribute("class", "visible");
   quizAnswers[0].setAttribute("class", "visible");
   setTime();
-
-  quizEl.addEventListener("click", function () {
-    quizAnswers[0].setAttribute("click", "hidden");
-  });
+  answerQuestion1();
 });
+
+// when answer is selected, this happens
+function answerQuestion1() {
+  quizEl.addEventListener("click", function () {
+    quizQuestions[0].setAttribute("class", "hidden");
+    quizAnswers[0].setAttribute("class", "hidden");
+    quizQuestions[1].setAttribute("class", "visible");
+    quizAnswers[1].setAttribute("class", "visible");
+    answerQuestion2();
+  });
+}
+
+function answerQuestion2() {
+  quizEl.addEventListener("click", function () {
+    quizQuestions[1].setAttribute("class", "hidden");
+    quizAnswers[1].setAttribute("class", "hidden");
+    quizQuestions[2].setAttribute("class", "visible");
+    quizAnswers[2].setAttribute("class", "visible");
+    answerQuestion3();
+  });
+}
+
+function answerQuestion3() {
+  quizEl.addEventListener("click", function () {
+    quizQuestions[2].setAttribute("class", "hidden");
+    quizAnswers[2].setAttribute("class", "hidden");
+    quizQuestions[3].setAttribute("class", "visible");
+    quizAnswers[3].setAttribute("class", "visible");
+    answerQuestion4();
+  });
+}
+
+function answerQuestion4() {
+  quizEl.addEventListener("click", function () {
+    quizQuestions[3].setAttribute("class", "hidden");
+    quizAnswers[3].setAttribute("class", "hidden");
+    quizQuestions[4].setAttribute("class", "visible");
+    quizAnswers[4].setAttribute("class", "visible");
+  });
+  hideQuestions();
+}
+
+function hideQuestions() {
+  clearInterval(secondsLeft);
+  quizQuestions[4].setAttribute("class", "hidden");
+  quizAnswers[4].setAttribute("class", "hidden");
+}
 
 // TODO: cycle through questions - - this through an event-listener then a for loop.
 // TODO: assign each question an ID of so they can be cycled through the array.
