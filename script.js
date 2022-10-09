@@ -8,6 +8,8 @@ var buttonEl = document.querySelector("button");
 
 var mode = "hidden";
 
+var answersEl = document.querySelector(".answers");
+
 var submit = document.querySelector("form");
 
 var startEl = document.querySelector("intro");
@@ -45,17 +47,13 @@ function setTime() {
 
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
-      sendMessage();
     }
     // this removes the quiz answers/questions when the timer runs out
   }, 1000);
 }
 
 //start quiz when button clicked
-quizEl.addEventListener("click", function () {
-  {
-    once: true;
-  }
+introEl.addEventListener("click", function () {
   introEl.setAttribute("class", "hidden");
   quizQuestions[0].setAttribute("class", "visible");
   quizAnswers[0].setAttribute("class", "visible");
@@ -66,29 +64,33 @@ quizEl.addEventListener("click", function () {
 //function when the time is up
 function sendMessage() {
   timeEl.textContent = "Time's Up!";
-  if (submit === "hidden") {
-    document.setAttribute("class", "visible");
-  }
+  // if (submit === "hidden") {
+  //   document.setAttribute("class", "visible");
+  // }
   var scoresEl = document.createElement("header");
   var input = document.createElement("input");
   var button1 = document.createElement("button");
+  var scoreEl = document.createElement("h4");
   mainEl.textContent = "Final Score: " + secondsLeft;
   scoresEl.textContent = "Your Name Here: ";
   button1.textContent = "Submit";
+  scoreEl.textContent = secondsLeft;
   button1.setAttribute("href", "");
+  footerEl.appendChild(scoreEl);
   footerEl.appendChild(scoresEl);
   footerEl.appendChild(button1);
   input.setAttribute("class", "username");
   footerEl.appendChild(input);
+  clearInterval(setTime);
   // TODO: present quiz results - local storage
-  function keepUserName() {
-    var name = localStorage.getItem("username");
-  }
+  // function keepUserName() {
+  //   var name = localStorage.getItem("username");
+  // }
 
-  function displayName(username, secondsLeft) {}
+  // function displayName(username, secondsLeft) {}
 
-  keepUserName();
-  displayName();
+  // keepUserName();
+  // displayName();
 }
 
 // function response() {
@@ -105,8 +107,7 @@ function sendMessage() {
 
 // when answer is selected, this happens
 function answerQuestion1() {
-  quizEl.addEventListener("click", function (event) {
-    event.stopPropagation();
+  answersEl.addEventListener("click", function () {
     quizQuestions[0].setAttribute("class", "hidden");
     quizAnswers[0].setAttribute("class", "hidden");
     quizQuestions[1].setAttribute("class", "visible");
@@ -117,8 +118,7 @@ function answerQuestion1() {
 }
 
 function answerQuestion2() {
-  quizEl.addEventListener("click", function (event) {
-    event.stopPropagation();
+  answersEl.addEventListener("click", function () {
     quizQuestions[1].setAttribute("class", "hidden");
     quizAnswers[1].setAttribute("class", "hidden");
     quizQuestions[2].setAttribute("class", "visible");
@@ -128,8 +128,7 @@ function answerQuestion2() {
 }
 
 function answerQuestion3() {
-  quizEl.addEventListener("click", function () {
-    event.stopPropagation();
+  answersEl.addEventListener("click", function () {
     quizQuestions[2].setAttribute("class", "hidden");
     quizAnswers[2].setAttribute("class", "hidden");
     quizQuestions[3].setAttribute("class", "visible");
@@ -139,22 +138,25 @@ function answerQuestion3() {
 }
 
 function answerQuestion4() {
-  quizEl.addEventListener("click", function () {
-    event.stopPropagation();
+  answersEl.addEventListener("click", function () {
     quizQuestions[3].setAttribute("class", "hidden");
     quizAnswers[3].setAttribute("class", "hidden");
     quizQuestions[4].setAttribute("class", "visible");
     quizAnswers[4].setAttribute("class", "visible");
     clearInterval(secondsLeft);
+    hideQuestions();
   });
-  hideQuestions();
 }
 
 function hideQuestions() {
-  clearInterval(secondsLeft);
-  quizQuestions[4].setAttribute("class", "hidden");
-  quizAnswers[4].setAttribute("class", "hidden");
+  answersEl.addEventListener("click", function () {
+    clearInterval(setTime);
+    quizQuestions[4].setAttribute("class", "hidden");
+    quizAnswers[4].setAttribute("class", "hidden");
+    timeEl.setAttribute("class", "hidden");
+    sendMessage();
+  });
 }
 
 // TODO: timer reduced when answer is wrong.
-// TODO: save timer when finished if not 0
+// TODO: add timer result to scorelist.
