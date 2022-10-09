@@ -8,6 +8,12 @@ var buttonEl = document.querySelector("button");
 
 var mode = "hidden";
 
+var submit = document.querySelector("form");
+
+var startEl = document.querySelector("intro");
+
+var answer = document.querySelectorAll(".true");
+
 // select all intro-class elements
 var introEl = document.querySelector(".intro");
 
@@ -20,7 +26,6 @@ var quizQuestions = [
   document.getElementById("question4"),
   document.getElementById("question5"),
 ];
-console.log(quizQuestions);
 
 var quizAnswers = [
   document.getElementById("answers1"),
@@ -46,9 +51,24 @@ function setTime() {
   }, 1000);
 }
 
+//start quiz when button clicked
+quizEl.addEventListener("click", function () {
+  {
+    once: true;
+  }
+  introEl.setAttribute("class", "hidden");
+  quizQuestions[0].setAttribute("class", "visible");
+  quizAnswers[0].setAttribute("class", "visible");
+  setTime();
+  answerQuestion1();
+});
+
 //function when the time is up
 function sendMessage() {
   timeEl.textContent = "Time's Up!";
+  if (submit === "hidden") {
+    document.setAttribute("class", "visible");
+  }
   var scoresEl = document.createElement("header");
   var input = document.createElement("input");
   var button1 = document.createElement("button");
@@ -60,29 +80,45 @@ function sendMessage() {
   footerEl.appendChild(button1);
   input.setAttribute("class", "username");
   footerEl.appendChild(input);
+  // TODO: present quiz results - local storage
+  function keepUserName() {
+    var name = localStorage.getItem("username");
+  }
+
+  function displayName(username, secondsLeft) {}
+
+  keepUserName();
+  displayName();
 }
-//start quiz when button clicked
-quizEl.addEventListener("click", function () {
-  introEl.setAttribute("class", "hidden");
-  quizQuestions[0].setAttribute("class", "visible");
-  quizAnswers[0].setAttribute("class", "visible");
-  setTime();
-  answerQuestion1();
-});
+
+// function response() {
+//   if (answer === true) {
+//     footerEl.createElement("p");
+//     p.textContent = "correct!";
+//     footerEl.appendChild("p");
+//   } else {
+//     footerEl.createElement("p");
+//     p.textContent = "wrong!";
+//     footerEl.appendChild("p");
+//   }
+// }
 
 // when answer is selected, this happens
 function answerQuestion1() {
-  quizEl.addEventListener("click", function () {
+  quizEl.addEventListener("click", function (event) {
+    event.stopPropagation();
     quizQuestions[0].setAttribute("class", "hidden");
     quizAnswers[0].setAttribute("class", "hidden");
     quizQuestions[1].setAttribute("class", "visible");
     quizAnswers[1].setAttribute("class", "visible");
     answerQuestion2();
+    // response();
   });
 }
 
 function answerQuestion2() {
-  quizEl.addEventListener("click", function () {
+  quizEl.addEventListener("click", function (event) {
+    event.stopPropagation();
     quizQuestions[1].setAttribute("class", "hidden");
     quizAnswers[1].setAttribute("class", "hidden");
     quizQuestions[2].setAttribute("class", "visible");
@@ -93,6 +129,7 @@ function answerQuestion2() {
 
 function answerQuestion3() {
   quizEl.addEventListener("click", function () {
+    event.stopPropagation();
     quizQuestions[2].setAttribute("class", "hidden");
     quizAnswers[2].setAttribute("class", "hidden");
     quizQuestions[3].setAttribute("class", "visible");
@@ -103,10 +140,12 @@ function answerQuestion3() {
 
 function answerQuestion4() {
   quizEl.addEventListener("click", function () {
+    event.stopPropagation();
     quizQuestions[3].setAttribute("class", "hidden");
     quizAnswers[3].setAttribute("class", "hidden");
     quizQuestions[4].setAttribute("class", "visible");
     quizAnswers[4].setAttribute("class", "visible");
+    clearInterval(secondsLeft);
   });
   hideQuestions();
 }
@@ -117,8 +156,5 @@ function hideQuestions() {
   quizAnswers[4].setAttribute("class", "hidden");
 }
 
-// TODO: cycle through questions - - this through an event-listener then a for loop.
-// TODO: assign each question an ID of so they can be cycled through the array.
-// TODO: present quiz results - local storage
-// TODO: show right/wrong answers
 // TODO: timer reduced when answer is wrong.
+// TODO: save timer when finished if not 0
