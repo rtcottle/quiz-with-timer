@@ -38,6 +38,8 @@ README help: https://coding-boot-camp.github.io/full-stack/github/professional-r
 
 Event-listener help: https://www.youtube.com/watch?v=XF1_MlZ5l6M&t=23s
 
+Storage help: https://www.youtube.com/watch?v=GihQAC1I39Q
+
 ## License
 
 The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).

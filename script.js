@@ -16,6 +16,8 @@ var startEl = document.querySelector("intro");
 
 var answer = document.querySelectorAll(".true");
 
+var usernameEl = document.querySelector(".username");
+
 // select all intro-class elements
 var introEl = document.querySelector(".intro");
 
@@ -61,6 +63,8 @@ introEl.addEventListener("click", function () {
   answerQuestion1();
 });
 
+// usernameEl.textContent = user;
+
 //function when the time is up
 function sendMessage() {
   timeEl.textContent = "Time's Up!";
@@ -82,16 +86,30 @@ function sendMessage() {
   input.setAttribute("class", "username");
   footerEl.appendChild(input);
   clearInterval(setTime);
-  // TODO: present quiz results - local storage
-  // function keepUserName() {
-  //   var name = localStorage.getItem("username");
-  // }
+  // TODO: present quiz results - local storage - MAKE THIS WORK
+  function keepUserName() {
+    var lastUser = localStorage.getItem(user);
 
-  // function displayName(username, secondsLeft) {}
+    footerEl.appendChild(lastUser);
+  }
 
-  // keepUserName();
-  // displayName();
+  button1.addEventListener("click", function (event) {
+    event.preventDefault();
+    var user = usernameEl.textContent;
+    localStorage.setItem("user", user);
+    localStorage.getItem(user);
+    footerEl.createElement("h4");
+    h4.textContent = usernameEl;
+    footerEl.appendChild(usernameEl);
+
+    keepUserName();
+  });
 }
+
+// function displayName(username, secondsLeft) {}
+
+// keepUserName();
+// displayName();
 
 // function response() {
 //   if (answer === true) {
@@ -159,4 +177,3 @@ function hideQuestions() {
 }
 
 // TODO: timer reduced when answer is wrong.
-// TODO: add timer result to scorelist.
