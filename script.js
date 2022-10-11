@@ -4,15 +4,15 @@ var mainEl = document.getElementById("main");
 
 var quizEl = document.querySelector(".quiz");
 
-var buttonEl = document.querySelector("button");
+var buttonEl = document.querySelector(".button");
 
 var mode = "hidden";
 
 var answersEl = document.querySelector(".answers");
 
-var submit = document.querySelector("form");
+var submit = document.querySelector(".form");
 
-var startEl = document.querySelector("intro");
+var startEl = document.querySelector(".intro");
 
 var answer = document.querySelectorAll(".true");
 
@@ -63,14 +63,9 @@ introEl.addEventListener("click", function () {
   answerQuestion1();
 });
 
-// usernameEl.textContent = user;
-
 //function when the time is up
 function sendMessage() {
   timeEl.textContent = "Time's Up!";
-  // if (submit === "hidden") {
-  //   document.setAttribute("class", "visible");
-  // }
   var scoresEl = document.createElement("header");
   var input = document.createElement("input");
   var button1 = document.createElement("button");
@@ -79,28 +74,28 @@ function sendMessage() {
   scoresEl.textContent = "Your Name Here: ";
   button1.textContent = "Submit";
   scoreEl.textContent = secondsLeft;
-  button1.setAttribute("href", "");
   footerEl.appendChild(scoreEl);
   footerEl.appendChild(scoresEl);
   footerEl.appendChild(button1);
-  input.setAttribute("class", "username");
+  input.setAttribute("id", "username");
   footerEl.appendChild(input);
   clearInterval(setTime);
   // TODO: present quiz results - local storage - MAKE THIS WORK
   function keepUserName() {
     var lastUser = localStorage.getItem(user);
-
-    footerEl.appendChild(lastUser);
+    if (user === "") return;
+    else footerEl.appendChild(lastUser);
   }
 
   button1.addEventListener("click", function (event) {
     event.preventDefault();
-    var user = usernameEl.textContent;
+    var user = document.querySelector(".username");
     localStorage.setItem("user", user);
     localStorage.getItem(user);
-    footerEl.createElement("h4");
-    h4.textContent = usernameEl;
-    footerEl.appendChild(usernameEl);
+    // footerEl.createElement("h4");
+    // h4.textContent = usernameEl;
+    // footerEl.appendChild(usernameEl);
+    console.log(user);
 
     keepUserName();
   });
@@ -122,6 +117,18 @@ function sendMessage() {
 //     footerEl.appendChild("p");
 //   }
 // }
+
+// TODO: get this function to work. Needs to take time off when wrong answer selected.
+
+function rightAnswer() {
+  answer.addEventListener("click", function (event) {
+    if (!event === true) {
+      secondsLeft - 1000;
+    }
+  });
+}
+
+rightAnswer();
 
 // when answer is selected, this happens
 function answerQuestion1() {
