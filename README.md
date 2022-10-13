@@ -13,9 +13,7 @@ N/A
 
 ## Usage
 
-This does have some basic coding questions with a timer to count-down the score. Opening the
-
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+This can be used to test basic knowledge in this brief quiz.
 
     ```md
     ![alt text](assets/images/screenshot.png)

@@ -1,44 +1,115 @@
 var timeEl = document.querySelector(".time");
-
 var mainEl = document.getElementById("main");
-
 var quizEl = document.querySelector(".quiz");
-
 var buttonEl = document.querySelector(".button");
-
 var mode = "hidden";
-
-var answersEl = document.querySelector(".answers");
-
+var answersEl = document.querySelector("#answers");
 var submit = document.querySelector(".form");
-
 var startEl = document.querySelector(".intro");
-
 var answer = document.querySelectorAll(".true");
-
 var usernameEl = document.querySelector(".username");
+var questionEl = document.getElementById("question");
 
 // select all intro-class elements
 var introEl = document.querySelector(".intro");
 
 var footerEl = document.querySelector("footer");
-//array to choose quiz questions.
-var quizQuestions = [
-  document.getElementById("question1"),
-  document.getElementById("question2"),
-  document.getElementById("question3"),
-  document.getElementById("question4"),
-  document.getElementById("question5"),
+
+//quiz question/answers options
+var quiz = [
+  {
+    question: "What language is used to build the framework of a website?",
+    choices: [
+      {
+        option: "CSS",
+        isCorrect: false,
+      },
+      {
+        option: "Java",
+        isCorrect: false,
+      },
+      {
+        option: "HTML",
+        isCorrect: true,
+      },
+      {
+        option: "C++",
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    question: "___ are used to initiate an event in JavaScript",
+    choices: [
+      {
+        option: "Functions",
+        isCorrect: false,
+      },
+      {
+        option: "Event Listeners",
+        isCorrect: true,
+      },
+      {
+        option: "Timers",
+        isCorrect: false,
+      },
+      {
+        option: "For loops",
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    question: "What is the page/universal selector in CSS?",
+    choices: [
+      {
+        option: ":",
+        isCorrect: false,
+      },
+      {
+        option: "()",
+        isCorrect: false,
+      },
+      {
+        option: "*",
+        isCorrect: true,
+      },
+      {
+        option: "@",
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    question: "Selectors in CSS are important because ___.",
+    choices: [
+      {
+        option: "they provide colors",
+        isCorrect: false,
+      },
+      {
+        option: "they are my favorite",
+        isCorrect: false,
+      },
+      {
+        option: "they target specific elements",
+        isCorrect: true,
+      },
+      {
+        option: "they actually don't matter",
+        isCorrect: false,
+      },
+    ],
+  },
 ];
 
-var quizAnswers = [
-  document.getElementById("answers1"),
-  document.getElementById("answers2"),
-  document.getElementById("answers3"),
-  document.getElementById("answers4"),
-  document.getElementById("answers5"),
-];
+function createQuestionEl() {
+  answersEl.setAttribute("class", "visible");
+  quiz.question.createElement("header");
+  quiz.choices.createElement("button");
+}
 
+// TODO: cycle through question/answers
 //number of seconds to do the quiz.
 var secondsLeft = 75;
 
@@ -57,10 +128,9 @@ function setTime() {
 //start quiz when button clicked
 introEl.addEventListener("click", function () {
   introEl.setAttribute("class", "hidden");
-  quizQuestions[0].setAttribute("class", "visible");
-  quizAnswers[0].setAttribute("class", "visible");
+  questionEl.setAttribute("class", "visible");
   setTime();
-  answerQuestion1();
+  createQuestionEl();
 });
 
 //function when the time is up
@@ -101,25 +171,6 @@ function sendMessage() {
   });
 }
 
-// function displayName(username, secondsLeft) {}
-
-// keepUserName();
-// displayName();
-
-// function response() {
-//   if (answer === true) {
-//     footerEl.createElement("p");
-//     p.textContent = "correct!";
-//     footerEl.appendChild("p");
-//   } else {
-//     footerEl.createElement("p");
-//     p.textContent = "wrong!";
-//     footerEl.appendChild("p");
-//   }
-// }
-
-// TODO: get this function to work. Needs to take time off when wrong answer selected.
-
 function rightAnswer() {
   answer.addEventListener("click", function (event) {
     if (!event === true) {
@@ -139,37 +190,6 @@ function answerQuestion1() {
     quizAnswers[1].setAttribute("class", "visible");
     answerQuestion2();
     // response();
-  });
-}
-
-function answerQuestion2() {
-  answersEl.addEventListener("click", function () {
-    quizQuestions[1].setAttribute("class", "hidden");
-    quizAnswers[1].setAttribute("class", "hidden");
-    quizQuestions[2].setAttribute("class", "visible");
-    quizAnswers[2].setAttribute("class", "visible");
-    answerQuestion3();
-  });
-}
-
-function answerQuestion3() {
-  answersEl.addEventListener("click", function () {
-    quizQuestions[2].setAttribute("class", "hidden");
-    quizAnswers[2].setAttribute("class", "hidden");
-    quizQuestions[3].setAttribute("class", "visible");
-    quizAnswers[3].setAttribute("class", "visible");
-    answerQuestion4();
-  });
-}
-
-function answerQuestion4() {
-  answersEl.addEventListener("click", function () {
-    quizQuestions[3].setAttribute("class", "hidden");
-    quizAnswers[3].setAttribute("class", "hidden");
-    quizQuestions[4].setAttribute("class", "visible");
-    quizAnswers[4].setAttribute("class", "visible");
-    clearInterval(secondsLeft);
-    hideQuestions();
   });
 }
 
