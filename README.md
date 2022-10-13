@@ -15,11 +15,9 @@ N/A
 
 This does have some basic coding questions with a timer to count-down the score. Opening the
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+Here is a link: https://rtcottle.github.io/quiz-with-timer/
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+![Screenshot of quiz](./screenshot.png)
 
 ## Credits
 
@@ -31,11 +29,7 @@ Storage help: https://www.youtube.com/watch?v=GihQAC1I39Q
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
-
----
-
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
+Licensed under the ! [MIT] license. (https://img.shields.io/badge/License-MIT-yellow.svg)(LICENSE)
 
 ## Features
 
