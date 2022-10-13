@@ -13,14 +13,9 @@ N/A
 
 ## Usage
 
-<<<<<<< HEAD
-This does have some basic coding questions with a timer to count-down the score. Opening the
-
-# Here is a link: https://rtcottle.github.io/quiz-with-timer/
+Here is a link: https://rtcottle.github.io/quiz-with-timer/
 
 This can be used to test basic knowledge in this brief quiz.
-
-> > > > > > > 81911e2faaa2484b54d72c9f5fcdac84a59aaae8
 
 ![Screenshot of quiz](./screenshot.png)
 
